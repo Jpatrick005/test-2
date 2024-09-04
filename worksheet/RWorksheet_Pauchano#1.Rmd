@@ -68,8 +68,8 @@ Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100))
 ```
 ```{r}
 
-hundred <- 100:1
-hundred
+hundred2 <- 100:1
+hundred2
 
 ```
 ```{r}
@@ -80,4 +80,20 @@ threefive
 
 sum(threefive)
   
+length(hundred2)
+length(threefive)
+
+hundred2
+threefive
+
+```
+```{r}
+
+x <- {0 + x + 5 + }
+#this expression is invalid. The plus sign (+) at the end is waiting for another operand to complete the expression
+
+```
+```{r}
+
+
 ```

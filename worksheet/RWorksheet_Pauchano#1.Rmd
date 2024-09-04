@@ -89,7 +89,7 @@ threefive
 ```
 ```{r}
 
-x <- {0 + x + 5 + }
+#x <- {0 + x + 5 + }
 #this expression is invalid. The plus sign (+) at the end is waiting for another operand to complete the expression
 
 ```

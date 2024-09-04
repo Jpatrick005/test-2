@@ -95,5 +95,25 @@ x <- {0 + x + 5 + }
 ```
 ```{r}
 
+score <- c(72, 86, 92, 63, 88, 89, 91, 92, 75,75,77 )
+score [2]
+score [3]
+ 
+```
+```{r}
+
+a = c(1,2,NA,4,NA,6,7)
+print(a, na.print="-999")
+
+```
+
+```{r}
+
+name = readline(prompt="Input your name: ")
+
+
+age = readline(prompt="Input your age: ")
+
+print(paste("My name is", name, "and I am", age, "years old."))
 
 ```

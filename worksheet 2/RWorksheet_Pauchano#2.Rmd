@@ -85,4 +85,33 @@ print(paste("Average Fuel Expenditure per liter from Jan to June:", gas_ex, "PhP
 
 ```
 
+```{r}
 
+#7. R has actually lots of built-in datasets. For example, the rivers data “gives the lengths
+#(in miles) of 141 “major” rivers in North America, as compiled by the US Geological
+#Survey”.
+
+#a. Type “rivers” in your R console.
+#Create a vector data with 7
+#elements, containing the number of elements (length)
+#in rivers, their sum (sum), mean (mean),
+#median(median), variance(var), standard deviation(sd),
+#minimum (min) and maximum (max).
+#b. What are the results?
+#c. Write the R scripts and its outputs.
+
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),sd(rivers), min(rivers), max(rivers))
+data
+
+```
+#8. The table below gives the 25 most powerful celebrities and their annual pay as ranked
+#by the editions of Forbes magazine and as listed on the Forbes.com website.
+
+```{r}
+
+power_ranking <- 1:25
+celebrity_name <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K. Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Leno", "Celine Dion", "Kobe Bryant")
+pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+
+
+```

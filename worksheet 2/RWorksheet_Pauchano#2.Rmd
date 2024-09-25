@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 ```{r}
 
 #1. Create a vector using : operator
@@ -191,4 +196,28 @@ print(first_six_rows)
 last_six_rows <- tail(selected_columns)
 print(last_six_rows)
 
+```
+
+```{r}
+#10. Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down.
+#a. Write the R scripts and its output.
+vegetables <- c("Talong", "Sitaw", "Ampalaya", "Okra", "Kalabasa", "Malunggay", "Kangkong", "Pechay", "Sayote", "Patola")
+vegetables
+```
+
+```{r}
+#b. Add 2 additional vegetables after the last vegetables in the list. What is the R script and its output?
+vegetables <- c(vegetables, "Labanos", "Gabi")
+vegetables
+```
+
+```{r}
+#c. Add 4 additional vegetables after index 5. How many data points does your vegetable list have? What is the R script and its output?
+vegetables <- append(vegetables, c("Mustasa", "Kamote", "Upo", "Alugbati"), after = 5)
+vegetables
+```
+
+```{r}
+#d. Remove the vegetables in index 5, 10, and 15. How many vegetables were left? Write the codes and its output.
+vegetables[-c(5, 10, 15)]
 ```

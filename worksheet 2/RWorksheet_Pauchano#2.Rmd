@@ -146,3 +146,49 @@ celebrity_data_imported
 ranked_subset <- celebrity_data[10:20, ]
 save(ranked_subset, file = "Ranks.RData")
 ```
+
+```{r}
+#9. Download the Hotels-Vienna https://tinyurl.com/Hotels-Vienna
+#a. Import the excel file into your RStudio.
+#what is the R script?
+library(readxl)
+hotels_data <- read_excel("hotels-vienna.xlsx")
+hotels_data
+```
+
+```{r}
+#b.How many dimensions does the dataset have?
+dataset_dimensions <- dim(hotels_data)
+dataset_dimensions
+```
+
+```{r}
+#c. Select columns country, neighbourhood, price, stars, accomodation_type, and ratings. Write the R script.
+library(dplyr)
+selected_columns <- hotels_data %>% select(country, neighbourhood, price, stars, accommodation_type, rating)
+selected_columns
+```
+
+```{r}
+#d. Save the data as **new.RData to your RStudio. Write the R script.
+library(readxl)
+library(dplyr)
+
+hotels_data <- read_excel("hotels-vienna.xlsx")
+colnames(hotels_data)
+selected_columns <- hotels_data %>% select(country, neighbourhood, price, stars, accommodation_type, ratings)
+save(selected_columns, file = "new.RData")
+
+```
+
+```{r}
+#e. Display the first six rows and last six rows of the new.RData. What is the R script?
+load("new.RData")
+
+first_six_rows <- head(selected_columns)
+print(first_six_rows)
+
+last_six_rows <- tail(selected_columns)
+print(last_six_rows)
+
+```

@@ -6,19 +6,16 @@
 seq_neg5_to_5 <- -5 : 5
 seq_neg5_to_5
 
-``` {}
-
-```{r}
 #b. x <- 1:7. What will be the value of x?
 x <- 1 : 7
 x
 
-```{}
 #2.* Create a vector using seq() function
 #a. seq(1, 3, by=0.2) # specify step size
 #Write the R script and its output. Describe the output. 
   
 seq(1, 3, by=0.2)
+```
 
 ```{r}
 #3. A factory has a census of its workers. There are 50 workers in total. The following
@@ -26,7 +23,7 @@ seq(1, 3, by=0.2)
 #22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
 #24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
 #18.
-````
+```
 
 ```{r}
 #a. Access 3rd element, what is the value?
@@ -104,14 +101,48 @@ data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers)
 data
 
 ```
+
 #8. The table below gives the 25 most powerful celebrities and their annual pay as ranked
 #by the editions of Forbes magazine and as listed on the Forbes.com website.
-
 ```{r}
-
+#a. Create vectors according to the above table.
+#Write the R scripts and its output.
 power_ranking <- 1:25
 celebrity_name <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K. Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Leno", "Celine Dion", "Kobe Bryant")
 pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+celebrity_data <- data.frame(PowerRanking = power_ranking, CelebrityName = celebrity_name, Pay = pay)
+celebrity_data
+
+```
+
+```{r}
+#b. Modify the power ranking and pay of J.K. Rowling.
+#Change power ranking to 15 and pay to 90. Write the
+#R scripts and its output.
+celebrity_data[celebrity_data$CelebrityName == "J.K. Rowling", "PowerRanking"] <- 15
+celebrity_data[celebrity_data$CelebrityName == "J.K. Rowling", "Pay"] <- 90
+
+celebrity_data
 
 
+
+```
+
+```{r}
+#c. Create an excel file from the table above and save it
+#as csv file(PowerRanking). Import the csv file into
+#the RStudio. What is the R script?
+write.csv(celebrity_data, file = "PowerRanking.csv", row.names = FALSE)
+
+celebrity_data_imported <- read.csv("PowerRanking.csv")
+
+celebrity_data_imported
+
+```
+
+```{r}
+#d. Access the rows 10 to 20 and save it as Ranks.RData.
+#Write the R script and its output.
+ranked_subset <- celebrity_data[10:20, ]
+save(ranked_subset, file = "Ranks.RData")
 ```

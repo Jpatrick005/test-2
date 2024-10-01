@@ -11,6 +11,6 @@ letters[1:21]
 ```
 b. Produce a vector that contains the odd numbered letters.
 ```{r}
- 
-
+letters[seq(1, length(LETTERS), by = 2)] 
+LETTERS[seq(1, length(LETTERS), by = 2)]
 ```

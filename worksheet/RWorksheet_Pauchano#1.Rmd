@@ -1,0 +1,119 @@
+---
+title: "RWorksheet_Pauchano#1.Rmd"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+date: "2024-09-04"
+---
+```{r}
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41, 51, 35, 24, 33, 41)
+
+length(age)
+
+reciprocal_age <- 1 / age
+reciprocal_age
+
+new_age <- c(age, 0, age)
+new_age
+
+sort(new_age, decreasing = FALSE)
+
+max(age)
+```
+```{r}
+
+
+
+data <- c(2.4, 2.8, 2.1, 2.5, 2.4, 2.2, 2.5, 2.3, 2.5, 2.3, 2.4, 2.7)
+
+
+dupe_data <- data * 2
+dupe_data
+
+
+length(data)
+
+hundred <- 1:100
+hundred
+
+number <- 20:60
+number
+
+mid <- mean(number)
+mid
+
+total <- 51:91
+total
+
+ttotal <- sum(total)
+ttotal
+
+thousand <- 1:1000
+thousand
+
+length(hundred)
+length(number)
+length(total)
+length(ttotal)
+
+max(thousand)
+ten <- thousand[thousand <= 10]
+max(ten)
+```
+```{r}
+
+Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100))
+
+```
+```{r}
+
+hundred2 <- 100:1
+hundred2
+
+```
+```{r}
+
+number <- 1:25
+threefive <-Filter(function(i) {i %% 3 == 0 || i %% 5 == 0 }, number)
+threefive
+
+sum(threefive)
+  
+length(hundred2)
+length(threefive)
+
+hundred2
+threefive
+
+```
+```{r}
+
+#x <- {0 + x + 5 + }
+#this expression is invalid. The plus sign (+) at the end is waiting for another operand to complete the expression
+
+```
+```{r}
+
+score <- c(72, 86, 92, 63, 88, 89, 91, 92, 75,75,77 )
+score [2]
+score [3]
+ 
+```
+```{r}
+
+a = c(1,2,NA,4,NA,6,7)
+print(a, na.print="-999")
+
+```
+
+```{r}
+
+name = readline(prompt="Input your name: ")
+
+
+age = readline(prompt="Input your age: ")
+
+print(paste("My name is", name, "and I am", age, "years old."))
+
+```

@@ -1,0 +1,15 @@
+Using Vectors
+1. There is a built-in vector LETTERS contains the uppercase letters of the alphabet and letters which contains the lowercase letters of the alphabet.
+```{r}
+LETTERS
+letters
+```
+Based on the above vector LETTERS:
+a. You need to produce a vector that contains the first 11 letters.
+```{r}
+letters[1:21]
+```
+b. Produce a vector that contains the odd numbered letters.
+```{r}
+
+```

@@ -48,5 +48,34 @@ weather
 ```
 d. Associate the dataframe you have created in 2.(c) by naming the columns using the names() function. Change the column names by using names() function as City and Temperature. What is the R code and its result?
 ```{r}
+names(weather) <- c("City", "Temperature")
+weather
+```
+e. Print the structure by using str() function. Describe the output.
+```{r}
+str(weather)
+```
+f. From the answer in d, what is the content of row 3 and row 4 What is its R code and its output?
+```{r}
+weather[c(3, 4), ]
+```
+g. From the answer in d, display the city with highest temperature and the city with the lowest temperature. What is its R code and its output?
+```{r}
+weather[which.min(weather$Temperature), ]
+weather[which.max(weather$Temperature), ]
+```
+Using Matrices
+• Matrix can be created by specifying the rows and columns.
 
+2. Create a matrix of one to eight and eleven to fourteen with four columns and three rows.
+
+a. What will be the R code for the #2 question and its result?
+```{r}
+mtrx1<- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+mtrx1
+```
+b. Multiply the matrix by two. What is its R code and its result?
+```{r}
+mmtrx <- mtrx1 * 2
+mmtrx
 ```

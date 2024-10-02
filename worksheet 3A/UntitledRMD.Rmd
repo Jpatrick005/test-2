@@ -79,3 +79,23 @@ b. Multiply the matrix by two. What is its R code and its result?
 mmtrx <- mtrx1 * 2
 mmtrx
 ```
+c. What is the content of row 2? What is its R code?
+```{r}
+r2 <- mtrx1[2,]
+r2
+```
+d. What will be the R code if you want to display the column 3 and column 4 in row 1 and row 2? What is its output?
+```{r}
+s2 <- mtrx1[1:2, 3:4]
+s2
+```
+g. Name the rows as isa, dalawa, tatlo and columns as uno, dos, tres, quatro for the matrix that was created in b.‘. What is its R code and corresponding output?
+```{r}
+rownames(mmtrx) <- c("isa", "dalawa", "tatlo")
+colnames(mmtrx) <- c("uno", "dos", "tres", "quatro")
+mmtrx
+```
+
+```{r}
+
+```

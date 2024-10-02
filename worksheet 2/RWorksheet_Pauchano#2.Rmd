@@ -181,7 +181,7 @@ library(dplyr)
 
 hotels_data <- read_excel("hotels-vienna.xlsx")
 colnames(hotels_data)
-selected_columns <- hotels_data %>% select(country, neighbourhood, price, stars, accommodation_type, ratings)
+selected_columns <- hotels_data %>% select(country, neighbourhood, price, stars, accommodation_type, rating)
 save(selected_columns, file = "new.RData")
 
 ```

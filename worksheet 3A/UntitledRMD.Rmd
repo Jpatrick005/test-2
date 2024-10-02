@@ -19,3 +19,34 @@ c.Produce a vector that contains the vowels
 letters[c(1, 5, 9, 15, 21)]
 LETTERS[c(1, 5, 9, 15, 21)]
 ```
+d. Produce a vector that contains the last 5 lowercase letters.
+```{r}
+letters[c(22:26)]
+```
+e. Produce a vector that contains letters between 15 to 24 letters in lowercase.
+```{r}
+letters[c(15:24)]
+```
+
+Create a vector(not a dataframe) with the average temperatures in April for Tuguegarao City, Manila, Iloilo City, Tacloban, Samal Island, and Davao City. The average temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees.
+
+a. What is the R code and its result for creating a character vector for the city/town of Tuguegarao City, Manila, Iloilo City,Tacloban,Samal Island, and Davao City? Name the object as city. The names should follow the same order as in the instruction.
+```{r}
+city <- c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+celcius <- c(42, 39, 34, 34, 30, 27 )
+```
+b. The average temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees. Name the object as temp. Write the R code and its output. Numbers should also follow what is in the instruction.
+```{r}
+weather <-data.frame (city, celcius)
+weather
+```
+c. Create a dataframe to combine the city and the temp by using ‘data.frame(). What the R code and its result?
+```{r}
+weather <- data.frame(City = city, Celcius = celcius)
+weather
+
+```
+d. Associate the dataframe you have created in 2.(c) by naming the columns using the names() function. Change the column names by using names() function as City and Temperature. What is the R code and its result?
+```{r}
+
+```

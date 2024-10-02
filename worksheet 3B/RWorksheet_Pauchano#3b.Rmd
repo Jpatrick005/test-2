@@ -1,0 +1,48 @@
+
+```{r}
+data <- data.frame(
+  Respondents = 1:20, 
+  Sex = c(2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2),
+  Fathers_Occupaton = c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1),
+  Persons_at_Home = c(5,7,3,8,5,9,6,7,8,4,7,5,4,7,8,8,3,11,7,6), 
+Siblings_at_School = c(6,4,4,1,2,1,5,3,1,2,3,2,5,5,2,1,2,5,3,2),
+Types_of_Houses =c(1,2,3,1,1,3,3,1,2,3,2,3,2,2,3,3,3,3,3,2)
+)
+data
+```
+
+```{r}
+str(data)
+summary(data)
+```
+
+```{r}
+mean_for_siblings <- mean(data$Siblings_at_School)
+mean_for_siblings
+```
+
+```{r}
+subset_data <- subset(data, Respondents <= 2)
+
+subset_data
+```
+
+```{r}
+subset_rows_e <- data[c(3, 5), c(2, 4)]
+subset_rows_e
+```
+
+```{r}
+types_houses <- data$Types_of_Houses
+types_houses
+```
+
+```{r}
+males_farmers <- data[data$Sex == 1 & data$Fathers_Occupaton,]
+males_farmers
+```
+
+```{r}
+female_siblings <- data[data$Sex == 2 & data$Siblings_at_School >= 5,]
+female_siblings
+```

@@ -52,6 +52,42 @@ new_order_data <- factor(factor_data, levels = c("East", "West", "North"))
 new_order_data
 ```
 5. Enter the data below in Excel with file name = import_march.csv
+a. Import the excel file into the Environment Pane using read.table() function. Write the code.
+b. View the dataset. Write the R scripts and its result.
+```{r}
+data <- read.table("import_march.csv", header = TRUE, sep = ",")
+data
+```
+a. Create an R Program that allows the User to randomly select numbers from 1 to 50.
+Then display the chosen number. If the number is beyond the range of the selected choice,
+it will have to display a string “The number selected is beyond the range of 1 to 50”. If
+number 20 is inputted by the User, it will have to display “TRUE”, otherwise display the
+input number.
+```{r}
+exhaustive_search <- function() {
+  chosen_number <- as.integer(readline(prompt = "Select a number between 1 and 50: "))
+  
+  if (is.na(chosen_number)) {
+    cat("Please enter a valid number.\n")
+    return()
+  }
+  
+  cat("You selected:", chosen_number, "\n")
+  
+  if (chosen_number < 1 || chosen_number > 50) {
+    cat("The number selected is beyond the range of 1 to 50.\n")
+  } else if (chosen_number == 20) {
+    cat("TRUE\n")
+  } else {
+    cat(chosen_number)
+  }
+}
+
+exhaustive_search()
+
+
+```
+
 ```{r}
 
 ```

@@ -29,7 +29,29 @@ d. Is there a relationship between shoe size and height? Why?
 relation <- cor(frame1$Shoesize, frame1$Height)
 relation
 ```
+2. Construct character vector months to a factor with factor() and assign the result to factor_months_vector. Print out factor_months_vector and assert that R prints out the factor levels below the actual values.
+```{r}
+months <- c("March", "April", "January", "November", "January", "September", "October", "September", "November", "August", "January", "November", "November", "February", "May", "August", "July", "December", "August", "August", "September", "November", "February", "April")
 
+fmonths <- factor(months)
+fmonths
+```
+3. Then check the summary() of the months_vector and factor_months_vector. Interpret the results of both vectors. Are they both equally useful in this case?
+```{r}
+smonths <- summary(months)
+sfmonths <- summary(fmonths)
+
+sfmonths
+smonths
+```
+4. Create a vector and factor for the table below.
+```{r}
+factor_data <- c(rep("East", 1), rep("West", 4), rep("North", 3))
+new_order_data <- factor(factor_data, levels = c("East", "West", "North"))
+
+new_order_data
+```
+5. Enter the data below in Excel with file name = import_march.csv
 ```{r}
 
 ```

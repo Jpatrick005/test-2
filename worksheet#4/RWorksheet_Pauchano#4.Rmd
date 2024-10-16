@@ -87,7 +87,29 @@ exhaustive_search()
 
 
 ```
-
+a. Write a function that prints the minimum number of bills that must be paid, given the
+price of the snack.
+Input: Price of snack (a random number divisible by 50) Output: Minimum number of bills
+needed to purchase a snack.
 ```{r}
+min_bills <- function(price) {
+  bills <- c(1000, 500, 200, 100, 50)
+  count <- 0
+  
+  for (bill in bills) {
+    num_bills <- price %/% bill
+    count <- count + num_bills
+    price <- price %% bill
+  }
+  
+  return(count)
+}
+
+snack_price <- as.numeric(readline(prompt = "Enter the price of the snack (divisible by 50): "))
+if (snack_price %% 50 == 0) {
+  cat("Minimum number of bills needed:", min_bills(snack_price), "\n")
+} else {
+  cat("Price must be a number divisible by 50.\n")
+}
 
 ```

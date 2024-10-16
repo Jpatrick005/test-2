@@ -6,5 +6,30 @@ gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M"
 
 frame1 <- data.frame(Shoesize = shoe_size, Height = height, Gender = gender)
 frame1
+```
+b. Create a subset by males and females with their corresponding shoe size and height.
+What its result? Show the R scripts.
+```{r}
+female <- subset(frame1, Gender == "F", select = c(Shoesize, Height))
+female
+
+male <- subset(frame1, Gender == "M", select = c(Shoesize, Height))
+male
+```
+c. Find the mean of shoe size and height of the respondents. Write the R scripts and its result.
+```{r}
+meanshoe <- mean(frame1$Shoesize)
+meanshoe
+
+meanheight <- mean(frame1$Height)
+meanheight
+```
+d. Is there a relationship between shoe size and height? Why?
+```{r}
+relation <- cor(frame1$Shoesize, frame1$Height)
+relation
+```
+
+```{r}
 
 ```

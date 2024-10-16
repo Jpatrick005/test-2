@@ -113,3 +113,30 @@ if (snack_price %% 50 == 0) {
 }
 
 ```
+8. The following is each student’s math score for one semester. Based on this, answer the
+following questions.
+a. Create a dataframe from the above table. Write the R codes and its output.
+```{r}
+name <- c("Annie","Thea","Steve","Hanna")
+grade1 <- c(85, 65, 75, 95)
+grade2 <- c(65, 75, 55, 75)
+grade3 <- c(85, 90, 80, 100)
+grade4 <- c(100, 90, 85, 90)
+
+grades <- data.frame(Name = name, Grade1 = grade1, Grade2 = grade2, Grade4 = grade4)
+grades
+
+```
+b. Without using the rowMean function, output the average score of students whose average
+math score over 90 points during the semester. write R code and its output.
+```{r}
+
+```
+c. Without using the mean function, output as follows for the tests in which the average
+score was less than 80 out of 4 tests.
+```{r}
+
+```
+d. Without using the max function, output as follows for students whose highest score for
+a semester exceeds 90 points.
+```{r}

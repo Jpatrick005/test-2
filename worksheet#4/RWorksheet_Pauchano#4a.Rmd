@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 1. The table below shows the data about shoe size and height. Create a data frame.
 ```{r}
 shoe_size <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0)
@@ -65,6 +70,7 @@ it will have to display a string “The number selected is beyond the range of 1
 number 20 is inputted by the User, it will have to display “TRUE”, otherwise display the
 input number.
 ```{r}
+
 exhaustive_search <- function() {
   chosen_number <- as.integer(readline(prompt = "Select a number between 1 and 50: "))
   
@@ -108,7 +114,8 @@ min_bills <- function(price) {
 }
 
 snack_price <- as.numeric(readline(prompt = "Enter the price of the snack (divisible by 50): "))
-if (snack_price %% 50 == 0) {
+
+if (!is.na(snack_price) && snack_price %% 50 == 0) {
   cat("Minimum number of bills needed:", min_bills(snack_price), "\n")
 } else {
   cat("Price must be a number divisible by 50.\n")
@@ -119,6 +126,7 @@ if (snack_price %% 50 == 0) {
 following questions.
 a. Create a dataframe from the above table. Write the R codes and its output.
 ```{r}
+
 name <- c("Annie","Thea","Steve","Hanna")
 grade1 <- c(85, 65, 75, 95)
 grade2 <- c(65, 75, 55, 75)

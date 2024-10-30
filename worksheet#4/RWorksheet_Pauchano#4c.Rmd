@@ -158,9 +158,90 @@ ggplot(top_models, aes(x = reorder(model, number_of_cars), y = number_of_cars, f
   theme_minimal() +
   scale_fill_viridis_d()
 ```
+5. Plot the relationship between cyl - number of cylinders and displ - engine displacement using geom_point with aesthetic color = engine displacement. Title should be “Relationship between No. of Cylinders and Engine Displacement”.
+```{r}
+ggplot(mpgdata, aes(x = cyl, y = displ, color = displ)) +
+  geom_point(size = 3, alpha = 0.7) +  
+  labs(title = "Relationship between No. of Cylinders and Engine Displacement",
+       x = "Number of Cylinders",
+       y = "Engine Displacement") +
+  theme_minimal() +
+  scale_color_viridis_c() 
+```
+a. How would you describe its relationship? Show the codes and its result.
 
+General Trend: The scatter plot typically shows a positive correlation between the number of cylinders and engine displacement. As the number of cylinders increases, the engine displacement tends to increase as well.
+
+Clustered Data: You'll likely see clusters of points, where vehicles with lower cylinder counts (e.g., 4 cylinders) have relatively lower displacement values, while vehicles with higher cylinder counts (e.g., 6 or 8 cylinders) are associated with larger displacement values.
+
+Variability: While the trend is generally positive, there may be some variability, particularly at higher cylinder counts where engine displacement can vary more widely.
+
+Outliers: Pay attention to any outliers that might skew the perception of the relationship. For instance, a vehicle with a high displacement but a low cylinder count could indicate a performance-oriented engine.
+
+
+6. Plot the relationship between displ (engine displacement) and hwy(highway miles per gallon). Mapped it with a continuous variable you have identified in #1-c. What is its result? Why it produced such output?
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = cty)) +
+  geom_point(size = 3, alpha = 0.7) + 
+  labs(title = "Relationship between Engine Displacement and Highway MPG",
+       x = "Engine Displacement (L)",
+       y = "Highway MPG",
+       color = "City MPG") +
+  theme_minimal() +
+  scale_color_viridis_c()
+```
+6. Import the traffic.csv onto your R environment.
+```{r}
+library(readr)
+traffic_data <- read_csv("traffic.csv")
+head(traffic_data)
+```
+a. How many numbers of observation does it have? What are the variables of the traffic dataset the Show your answer.
+```{r}
+num_observations <- nrow(traffic_data)
+variables <- colnames(traffic_data)
+num_observations
+variables
+```
+b. subset the traffic dataset into junctions. What is the R codes and its output?
+```{r}
+junctions_data <- subset(traffic_data, Junction == TRUE)
+head(junctions_data)
+```
+c. Plot each junction in a using geom_line(). Show your solution and output.
+```{r}
+library(ggplot2)
+ggplot(traffic_data, aes(x = DateTime, y = Vehicles, color = factor(Junction))) +
+  geom_line() +
+  labs(title = "Vehicle Counts at Junctions Over Time",
+       x = "Date and Time",
+       y = "Number of Vehicles",
+       color = "Junction") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+7. From alexa_file.xlsx, import it to your environment
 ```{r}
 
 ```
+a. How many observations does alexa_file has? What about the number of columns? Show your solution and answer.
+```{r}
 
+```
+b. group the variations and get the total of each variations. Use dplyr package. Show solution and answer.
+```{r}
+
+```
+c. Plot the variations using the ggplot() function. What did you observe? Complete the details of the graph. Show solution and answer.
+```{r}
+
+```
+d. Plot a geom_line() with the date and the number of verified reviews. Complete the details of the graphs. Show your answer and solution.
+```{r}
+
+```
+e. Get the relationship of variations and ratings. Which variations got the most highest in rating? Plot a graph to show its relationship. Show your solution and answer.
+```{r}
+
+```
 

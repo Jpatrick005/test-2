@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 1. Using the for loop, create an R script that will display a 5x5 matrix as shown in
 Figure 1. It must contain vectorA = [1,2,3,4,5] and a 5 x 5 zero matrix.
 ```{r}
@@ -21,7 +26,8 @@ for (i in 1:n) {
 ```
 3. Get an input from the user to print the Fibonacci sequence starting from the 1st input up to 500. Use repeat and break statements. Write the R Scripts and its output.
 ```{r}
-start <- as.integer(readline(prompt = "Enter the starting number for the Fibonacci sequence: "))
+#start <- as.integer(readline(prompt = "Enter the starting number for the Fibonacci sequence: "))
+start <- 5
 a <- 0
 b <- 1
 repeat {
@@ -144,13 +150,73 @@ f. Overall Interpretation
 
 7. Import the alexa-file.xlsx. Check on the variations. Notice that there are extra whitespaces among black variants (Black Dot, Black Plus, Black Show, Black Spot). Also on the white variants (White Dot, White Plus, White Show, White Spot).
 ```{r}
+library(readxl)
 alexa_data <- read_excel("alexa_file.xlsx")
-str(alexa_data)
+unique(alexa_data$variation)
+alexa_data$variation <- gsub("Black Dot", "BlackDot", alexa_data$variation)
+alexa_data$variation <- gsub("Black Plus", "BlackPlus", alexa_data$variation)
+alexa_data$variation <- gsub("Black Show", "BlackShow", alexa_data$variation)
+alexa_data$variation <- gsub("Black Spot", "BlackSpot", alexa_data$variation)
+alexa_data$variation <- gsub("White Dot", "WhiteDot", alexa_data$variation)
+alexa_data$variation <- gsub("White Plus", "WhitePlus", alexa_data$variation)
+alexa_data$variation <- gsub("White Show", "WhiteShow", alexa_data$variation)
+alexa_data$variation <- gsub("White Spot", "WhiteSpot", alexa_data$variation)
+unique(alexa_data$variation)
 ```
-
+b. Get the total number of each variations and save it into another object. Save the object as variations.RData. Write the R scripts. What is its result?
 ```{r}
+library(dplyr)
+variation_counts <- alexa_data %>%
+  count(variation)
+print(variation_counts)
+save(variation_counts, file = "variations.RData")
 
 ```
+c. From the variations.RData, create a barplot(). Complete the details of the chart
+which include the title, color, labels of each bar.
+```{r}
+library(dplyr)
+load("variations.RData")
+variation_counts$variation <- gsub(" +", " ", variation_counts$variation)
+variation_counts$variation <- trimws(variation_counts$variation)
+bar_data <- variation_counts$n
+bar_names <- variation_counts$variation
+barplot(
+  bar_data,
+  main = "Counts of Variations",               
+  col = rainbow(length(bar_data)),              
+  names.arg = bar_names,                        
+  xlab = "Variations",                          
+  ylab = "Counts",                            
+  las = 2,                                      
+  border = "black"                               
+)
+text(x = seq_along(bar_data), y = bar_data, labels = bar_data, pos = 3, cex = 0.8, col = "black")
 
+```
+d. Create a barplot() for the black and white variations. Plot it in 1 frame, side by side. Complete the details of the chart.
+```{r}
+library(ggplot2)
+library(dplyr)
+load("variations.RData")
+variation_counts$variation <- gsub(" +", " ", variation_counts$variation)
+variation_counts$variation <- trimws(variation_counts$variation)
+bw_variations <- variation_counts %>%
+  filter(grepl("Black|White", variation))
+bar_data <- as.matrix(bw_variations$n)
+bar_names <- bw_variations$variation
+barplot(
+  bar_data,
+  beside = TRUE,                           
+  main = "Counts of Black and White Variations", 
+  col = c("black", "gray", "lightgray", "white"),  
+  names.arg = bar_names,                   
+  xlab = "Variations",                      
+  ylab = "Counts",                          
+  las = 2,                                
+  border = "black"                          
+)
+text(x = seq_along(bar_data), y = bar_data, labels = bar_data, pos = 3, cex = 0.8, col = "black")
 
+```
 

@@ -227,21 +227,55 @@ ggplot(traffic_data, aes(x = DateTime, y = Vehicles, color = factor(Junction))) 
 a. How many observations does alexa_file has? What about the number of columns? Show your solution and answer.
 ```{r}
 
+library(readxl)
+dimensions <- dim(alexa_data)
+num_rows <- dimensions[1]
+num_columns <- dimensions[2]
+
+num_rows
+num_columns  
+
 ```
 b. group the variations and get the total of each variations. Use dplyr package. Show solution and answer.
 ```{r}
+library(dplyr)
+variation_totals <- alexa_data %>%
+  group_by(variation) %>%
+  summarise(total = n())
+variation_totals
 
 ```
 c. Plot the variations using the ggplot() function. What did you observe? Complete the details of the graph. Show solution and answer.
 ```{r}
+library(ggplot2)
+
+ggplot(variation_totals, aes(x = variation, y = total, fill = variation)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Counts for Each Variation", x = "Variation", y = "Total Count") +
+  theme_minimal()
 
 ```
 d. Plot a geom_line() with the date and the number of verified reviews. Complete the details of the graphs. Show your answer and solution.
 ```{r}
-
+alexa_data$verified_reviews <- as.numeric(alexa_data$verified_reviews)
+reviews_by_date <- alexa_data %>%
+  group_by(date) %>%
+  summarise(total_verified_reviews = sum(verified_reviews, na.rm = TRUE))
+library(ggplot2)
+ggplot(reviews_by_date, aes(x = date, y = total_verified_reviews)) +
+  geom_line(color = "blue") +
+  labs(title = "Verified Reviews Over Time", x = "Date", y = "Number of Verified Reviews") +
+  theme_minimal()
 ```
 e. Get the relationship of variations and ratings. Which variations got the most highest in rating? Plot a graph to show its relationship. Show your solution and answer.
 ```{r}
+variation_ratings <- alexa_data %>%
+  group_by(variation) %>%
+  summarise(average_rating = mean(rating, na.rm = TRUE))
+ggplot(variation_ratings, aes(x = variation, y = average_rating, fill = variation)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Average Rating by Variation", x = "Variation", y = "Average Rating") +
+  theme_minimal()
 
 ```
 

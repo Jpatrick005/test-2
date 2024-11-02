@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 1. Use the dataset mpg
 
 a. Show your solutions on how to import a csv file into the environment.
@@ -26,6 +31,7 @@ c. Which are continuous variables?
  
 2. Which manufacturer has the most models in this data set? Which model has the most variations? Show your answer.
 ```{r}
+library(dplyr)
 manufacturer_count <- mpgdata %>%
   group_by(manufacturer) %>%
   summarise(model_count = n_distinct(model)) %>%
@@ -228,6 +234,7 @@ a. How many observations does alexa_file has? What about the number of columns? 
 ```{r}
 
 library(readxl)
+alexa_data <- read_excel("alexa_file.xlsx")
 dimensions <- dim(alexa_data)
 num_rows <- dimensions[1]
 num_columns <- dimensions[2]
